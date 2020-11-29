@@ -1,0 +1,25 @@
+<div class="whole-navbar">
+  <p>
+    <mat-toolbar class="whole-navbar" color="primary">
+      <span>بمبی شاپ</span>
+      <button mat-button class="account-icon" aria-label>
+        <mat-icon>person_pin</mat-icon>
+        ورود به حساب کاربری
+      </button>
+      <p class="space"></p>
+      <button
+        mat-icon-button
+        class="menu-icon"
+        aria-label
+        (click)="toggleSidenav()"
+      >
+        <mat-icon>{{ menu_icon }}</mat-icon>
+      </button>
+
+      
+
+
+      <app-sidebar [isOpen]="isShowing"></app-sidebar>
+    </mat-toolbar>
+  </p>
+</div>
