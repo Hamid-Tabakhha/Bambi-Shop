@@ -1,0 +1,45 @@
+<div class="log-dialog">
+  <p class="sign-in-text">𝑺𝒊𝒈𝒏 𝑰𝒏</p>
+  <form class="example-form">
+    <mat-form-field class="user-login">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput #loginuser minlength="6" maxlength="25" placeholder="Enter Your Username" />
+      <mat-hint align="end">{{ loginuser.value.length }} 6/ 25</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="pass-login">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #loginpass minlength="6" maxlength="30" placeholder="Enter Your Password" />
+      <mat-hint align="end">{{ loginpass.value.length }} 6/ 30</mat-hint>
+    </mat-form-field>
+  </form>
+
+  <button class="sign-in-but" mat-raised-button color="primary">Sign In</button>
+
+  <hr class="hr" />
+
+
+  <p class="sign-up-text">𝑺𝒊𝒈𝒏 𝑼𝒑</p>
+  <form>
+    <mat-form-field class="user-register">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="Enter Valid Username"/>
+      <mat-hint align="end">{{ reguser.value.length }} 6 / 25</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="pass-register">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #regpass minlength="6" maxlength="30" placeholder="Enter Valid Password" />
+      <mat-hint align="end">{{ regpass.value.length }} 6/ 30</mat-hint>
+      <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+        Please enter a valid Password
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <button class="sign-up-but" mat-raised-button color="primary">Sign Up</button>
+  
+</div>

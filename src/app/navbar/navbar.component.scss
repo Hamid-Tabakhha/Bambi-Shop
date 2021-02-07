@@ -1,5 +1,6 @@
 .menu-icon {
-  float: right;
+  position: relative;
+  float: left;
 }
 .space {
   flex: 1 1 auto;
@@ -7,6 +8,11 @@
 
 .account-icon {
   color: rgb(239, 140, 252);
+  position: absolute;
+  width: 67px;
+  height: 33px;
+  left: 117px;
+  top: 18px;
 }
 
 .whole-navbar{
@@ -20,4 +26,11 @@
 
 .example-full-width {
   width: 100%;
+}
+.search-box{
+  position: absolute;
+  left: 300px;
+  width: 240px;
+  height: 43px;
+  top: 1%;
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-
+import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {SingIUDialogComponent} from 'src/app/sing-iudialog/sing-iudialog.component'
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +9,14 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class NavbarComponent implements OnInit {
 
-  
 
-  search = new FormControl();
+
   isShowing: boolean = false;
+  isShowingSign: boolean = false;
   iconing: boolean = false;
 
+  value = 'Clear me';
   public menu_icon = 'menu';
-
-  constructor() { }
 
   ngOnInit(): void {
   }
@@ -33,4 +31,26 @@ export class NavbarComponent implements OnInit {
     }
     this.isShowing = !this.isShowing;
   }
+  clickSignDialog(){
+    this.isShowingSign = true;
+  }
+
+
+  animal: string;
+  name: string;
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SingIUDialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }

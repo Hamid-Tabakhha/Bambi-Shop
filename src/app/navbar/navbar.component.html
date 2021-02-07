@@ -1,12 +1,23 @@
 <div class="whole-navbar">
   <p>
     <mat-toolbar class="whole-navbar" color="primary">
-      <span>بمبی شاپ</span>
-      <button mat-button class="account-icon" aria-label>
+      <span>فروشگاه بمبی</span>
+      <button mat-button class="account-icon" aria-label
+      (click)="openDialog()"
+      >
         <mat-icon>person_pin</mat-icon>
-        ورود به حساب کاربری
       </button>
+
+      <mat-form-field class="search-box">
+        <mat-label>Clearable input</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
       <p class="space"></p>
+
       <button
         mat-icon-button
         class="menu-icon"
@@ -16,10 +27,9 @@
         <mat-icon>{{ menu_icon }}</mat-icon>
       </button>
 
-      
+      <app-sidebar [isOpenSN]="isShowing"></app-sidebar>
 
 
-      <app-sidebar [isOpen]="isShowing"></app-sidebar>
-    </mat-toolbar>
+  </mat-toolbar>
   </p>
 </div>
