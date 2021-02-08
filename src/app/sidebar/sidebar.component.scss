@@ -1,9 +1,6 @@
 .example-container {
   float: right;
-
 }
-
-
 // .example-container {
 //   position: absolute;
 //   top: 0;
@@ -13,15 +10,13 @@
 // }
 
 mat-toolbar-row:hover{
-
 background-color:#ff99ff;
-
 }
 
 .sidenav-toolbar{
   background-color:#ff99ff;
-}
 
+}
 
 .example-sidenav-content {
   display: flex;
@@ -42,4 +37,5 @@ background-color:#ff99ff;
 .mat-sidenav
 {
   border-top-left-radius: 20px;
+  left: 85%;
 }

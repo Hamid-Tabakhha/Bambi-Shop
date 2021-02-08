@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {SingIUDialogComponent} from 'src/app/sing-iudialog/sing-iudialog.component'
+import {SingIUDialogComponent} from 'src/app/sing-iudialog/sing-iudialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,47 +10,43 @@ import {SingIUDialogComponent} from 'src/app/sing-iudialog/sing-iudialog.compone
 export class NavbarComponent implements OnInit {
 
 
+  isShowing = false;
+  isShowingSign = false;
+  iconing = false;
 
-  isShowing: boolean = false;
-  isShowingSign: boolean = false;
-  iconing: boolean = false;
-
-  value = 'Clear me';
+  value = '';
+  // tslint:disable-next-line:variable-name
   public menu_icon = 'menu';
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
   toggleSidenav() {
-    if (this.iconing == true) {
+    if (this.iconing === true) {
       this.iconing = false;
-      this.menu_icon = 'menu'
-    }else{
+      this.menu_icon = 'menu';
+    } else {
       this.iconing = true;
-      this.menu_icon = 'keyboard_arrow_right'
+      this.menu_icon = 'keyboard_arrow_right';
     }
     this.isShowing = !this.isShowing;
   }
-  clickSignDialog(){
-    this.isShowingSign = true;
+
+  // tslint:disable-next-line:typedef
+  // clickSignDialog() {
+  //   this.isShowingSign = true;
+  // }
+
+
+  constructor(public dialog: MatDialog) {
   }
 
-
-  animal: string;
-  name: string;
-
-  constructor(public dialog: MatDialog) {}
-
   openDialog(): void {
-    const dialogRef = this.dialog.open(SingIUDialogComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
+    const dialogRef = this.dialog.open(SingIUDialogComponent, {});
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
   }
 
 }

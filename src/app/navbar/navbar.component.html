@@ -3,31 +3,31 @@
     <mat-toolbar class="whole-navbar" color="primary">
       <span>فروشگاه بمبی</span>
       <button mat-button class="account-icon" aria-label
-      (click)="openDialog()"
-      >
-        <mat-icon>person_pin</mat-icon>
+              (click)="openDialog()"
+      > ورود / عضویت
+        <mat-icon class="acc-icon">person_pin</mat-icon>
       </button>
 
-      <mat-form-field class="search-box">
-        <mat-label>Clearable input</mat-label>
-        <input matInput type="text" [(ngModel)]="value">
-        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+            <mat-form-field class="search-box">
+              <mat-label>جست و جو</mat-label>
+              <input matInput type="text" [(ngModel)]="value">
+              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
 
-      <p class="space"></p>
+  <p class="space"></p>
 
-      <button
-        mat-icon-button
-        class="menu-icon"
-        aria-label
-        (click)="toggleSidenav()"
-      >
-        <mat-icon>{{ menu_icon }}</mat-icon>
-      </button>
+  <button
+    mat-icon-button
+    class="menu-icon"
+    aria-label
+    (click)="toggleSidenav()"
+  >
+    <mat-icon>{{ menu_icon }}</mat-icon>
+  </button>
 
-      <app-sidebar [isOpenSN]="isShowing"></app-sidebar>
+  <app-sidebar [isOpenSN]="isShowing"></app-sidebar>
 
 
   </mat-toolbar>
