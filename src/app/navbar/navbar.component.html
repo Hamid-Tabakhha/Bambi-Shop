@@ -8,13 +8,14 @@
         <mat-icon class="acc-icon">person_pin</mat-icon>
       </button>
 
-            <mat-form-field class="search-box">
-              <mat-label>جست و جو</mat-label>
-              <input matInput type="text" [(ngModel)]="value">
-              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
+  <div class="container h-100" >
+    <div class="d-flex justify-content-center h-100">
+      <div class="searchbar">
+        <input class="search_input" type="text" name="" placeholder="Search...">
+        <mat-icon class="search_icon">search</mat-icon>
+      </div>
+    </div>
+  </div>
 
   <p class="space"></p>
 
