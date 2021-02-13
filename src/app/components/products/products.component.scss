@@ -1,0 +1,22 @@
+.example-card {
+  max-width: 400px;
+  margin: 100px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.whole-products{
+  position: relative;
+
+}
+
+.products-grid{
+  display: block;
+  position: relative;
+  width: 1150px;
+  background-color: rgba(255,130,111,0.31);
+  left: 69px;
+
+}

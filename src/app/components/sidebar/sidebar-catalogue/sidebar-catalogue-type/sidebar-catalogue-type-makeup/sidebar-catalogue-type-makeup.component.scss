@@ -1,0 +1,65 @@
+//@font-face {
+//  font-family: Fontn;
+//  src: url('src/Fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo.eot');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+mat-toolbar-row:hover{
+  background-color:#ff99ff;
+}
+
+.sidenav-toolbar{
+  background-color:#ff99ff;
+}
+
+.rojh{
+  top: 25%;
+  position: fixed;
+  width: 170px;
+}
+
+.kerem{
+  top: 34%;
+  position: fixed;
+  width: 170px;
+}
+
+.rimel{
+  top:43%;
+  position: fixed;
+  width: 170px;
+}
+
+.lak {
+  top:53%;
+  position: fixed;
+  width: 170px;
+}
+
+.back{
+  top:80%;
+  position: fixed;
+}
+
+.back{
+  top: 12%;
+  position: absolute;
+  width: 103px;
+  left: 119px;
+}
+
+.back-icon{
+  position: relative;
+}
+
+.home{
+  left: 16px;
+  width: 103px;
+  position: absolute;
+  top: 12%;
+}
+.home-icon{
+  position: relative;
+
+}

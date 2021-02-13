@@ -1,0 +1,98 @@
+.menu-icon {
+  position: relative;
+  float: left;
+}
+
+.space {
+  flex: 1 1 auto;
+}
+
+.account-icon {
+  color: #ef8cfc;
+  position: absolute;
+  width: 136px;
+  height: 36px;
+  left: 117px;
+  top: 18px;
+}
+
+
+.whole-navbar {
+  top: 0px;
+  height: 70px;
+  position: fixed;
+  z-index: 999;
+  box-shadow: 0px 2px 0px rgb(0 0 0 / 25%), inset 285px 0px 9px rgb(0 0 0 / 25%);
+
+
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.search-box {
+  position: relative;
+  left: 300px;
+  width: 200px;
+  height: 43px;
+  top: 1%;
+}
+
+.acc-icon {
+  width: 45px;
+}
+
+
+.searchbar {
+  background-color: darkslateblue;
+  border-radius: 30px;
+  padding: 10px;
+  left: 183px;
+  position: relative;
+  top: 1.5%;
+  height: 18px;
+}
+
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 5px;
+  transition: width 0.4s linear;
+  top: 5px;
+}
+
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 300px;
+  caret-color: #8139fa;
+  transition: width 0.5s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #8139fa;
+}
+
+.search_icon {
+  height: 27px;
+  width: 27px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  margin-top: -4px;
+}
