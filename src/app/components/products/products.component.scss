@@ -13,8 +13,21 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+  background-image: url('https://www.sephora.com/productimages/sku/s1287606-main-zoom.jpg');
+  width: 188px;
+  right: 24px;
+  position: relative;
+}
+
+.product-title{
+  left: 99px;
+  position: relative;
+  top: 202px;
+}
+.product-info{
+  position: relative;
+  left: 99px;
+  top: 45px;
 }
 
 .whole-products {
