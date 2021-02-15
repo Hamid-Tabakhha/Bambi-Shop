@@ -28,5 +28,6 @@ export class ProductsComponent {
     {name: 'three', price: 1, producerCompany: 'nasa', img: '', desc: 'new product'},
     {name: 'four', price: 24, producerCompany: 'nasa', img: '', desc: 'new product'},
     {name: 'five', price: 5, producerCompany: 'nasa', img: '', desc: 'new product'},
+    {name: 'six', price: 36, producerCompany: 'nasa', img: '', desc: 'new product'},
   ];
 }
