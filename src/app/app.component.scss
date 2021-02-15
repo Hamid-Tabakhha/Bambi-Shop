@@ -2,7 +2,25 @@
     font-family: 'Material Icons' !important;
 }
 
-.side-image{
-  height: 160px;
-  width: 130px;
+.side-image1{
+  height: 90.5%;
+  position: fixed;
+  top: 70px;
+  width: 420px;
+  opacity: 0.8;
+  /* transform: rotate(
+15deg
+); */
+  right: -101px;
 }
+
+.side-image2{
+  height: 90.5%;
+  position: fixed;
+  top: 70px;
+  width: 170px;
+  opacity: 0.8;
+  transform: rotate(180deg);
+}
+
+

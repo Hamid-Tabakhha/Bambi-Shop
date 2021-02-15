@@ -1,36 +1,32 @@
-<div class="whole-navbar">
-  <p>
-    <mat-toolbar class="whole-navbar" color="primary">
-      <span>فروشگاه بمبی</span>
-      <button mat-button class="account-icon" aria-label
-              (click)="openDialog()"
-      > ورود / عضویت
-        <mat-icon class="acc-icon">person_pin</mat-icon>
-      </button>
-
-  <div class="container h-100" >
-    <div class="d-flex justify-content-center h-100">
-      <div class="searchbar">
-        <input class="search_input" type="text" name="" placeholder="Search...">
-        <mat-icon class="search_icon">search</mat-icon>
-      </div>
-    </div>
-  </div>
-
-  <p class="space"></p>
-
-  <button
-    mat-icon-button
-    class="menu-icon"
-    aria-label
-    (click)="toggleSidenav()"
-  >
-    <mat-icon>{{ menu_icon }}</mat-icon>
-  </button>
-
-  <app-sidebar [isOpenSN]="isShowing"></app-sidebar>
+<p>
+  <mat-toolbar class="whole-navbar" color="primary">
+    <span>فروشگاه بمبی</span>
+    <button mat-button class="account-icon" aria-label
+            (click)="openDialog()"
+    > ورود / عضویت
+      <mat-icon class="acc-icon">person_pin</mat-icon>
+    </button>
 
 
-  </mat-toolbar>
-  </p>
-</div>
+    <label class="searchbar">
+      <input class="search_input" type="text" name="" placeholder="Search...">
+      <mat-icon class="search_icon">search</mat-icon>
+    </label>
+
+
+<label class="space"></label>
+
+<button
+  mat-icon-button
+  class="menu-icon"
+  aria-label
+  (click)="toggleSidenav()"
+>
+  <mat-icon>{{ menu_icon }}</mat-icon>
+</button>
+
+<app-sidebar [isOpenSN]="isShowing"></app-sidebar>
+
+
+</mat-toolbar>
+</p>

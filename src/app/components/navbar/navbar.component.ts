@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {SingIUDialogComponent} from 'src/app/components/sing-iudialog/sing-iudialog.component';
+import {SignIudialogComponent} from 'src/app/components/sign-iudialog/sign-iudialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
 
   isShowing = false;
-  isShowingSign = false;
+
   iconing = false;
 
   value = '';
@@ -43,10 +43,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(SingIUDialogComponent, {});
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
+    this.dialog.open(SignIudialogComponent, {});
   }
 
 }

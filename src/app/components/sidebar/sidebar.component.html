@@ -7,7 +7,21 @@
     [opened]="isOpenSN"
     fixedInViewport="fixedBottomGap"
   >
-<router-outlet></router-outlet>
+
+    <div>
+      <mat-toolbar-row class="logo">𝐵𝒶𝓂𝒷𝒾 𝒮𝒽𝑜𝓅</mat-toolbar-row>
+    </div>
+    <img class="logobg" src="assets/logobg1.png" alt="logopic">
+
+    <p-slideMenu [model]="items" [viewportHeight]="430">
+      <ng-template pTemplate="menuItem" let-item let-i="index">
+        <div class="asdfesd">{{ item.label }}</div>
+      </ng-template>
+    </p-slideMenu>
+
+
+    <!--    <button #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>-->
+    <!--    <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>-->
 
   </mat-sidenav>
 </mat-sidenav-container>

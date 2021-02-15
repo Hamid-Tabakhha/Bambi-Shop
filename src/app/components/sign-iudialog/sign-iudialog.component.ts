@@ -14,30 +14,23 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
   selector: 'app-sing-iudialog',
-  templateUrl: './sing-iudialog.component.html',
-  styleUrls: ['./sing-iudialog.component.scss']
+  templateUrl: './sign-iudialog.component.html',
+  styleUrls: ['./sign-iudialog.component.scss']
 })
-export class SingIUDialogComponent implements OnInit {
+export class SignIudialogComponent implements OnInit {
 
 
   ngOnInit(): void {
   }
 
   constructor(
-    public dialogRef: MatDialogRef<SingIUDialogComponent>, @Inject(MAT_DIALOG_DATA)
+    @Inject(MAT_DIALOG_DATA)
     public data: NavbarComponent) {
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 
   passwordFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
-
-  matcher = new MyErrorStateMatcher();
 
 }
