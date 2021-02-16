@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
       {
         label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
         icon: 'pi pi-fw pi-user',
-        routerLink: ''
+        routerLink: '/account-profile'
       },
       {
         label: '𝘊𝒂𝒕𝒂𝒍𝒐𝒈𝒖𝒆',
