@@ -2,24 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {SignIudialogComponent} from 'src/app/components/sign-iudialog/sign-iudialog.component';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
 
   isShowing = false;
-
   iconing = false;
 
   value = '';
   // tslint:disable-next-line:variable-name
   public menu_icon = 'menu';
 
-  ngOnInit(): void {
-  }
+
 
   // tslint:disable-next-line:typedef
   toggleSidenav() {

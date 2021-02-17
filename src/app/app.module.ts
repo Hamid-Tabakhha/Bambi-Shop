@@ -24,6 +24,7 @@ import { AccountProfileComponent } from './components/account-profile/account-pr
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { ButtonModule } from 'primeng/button';
 import {MatSelectModule} from '@angular/material/select';
+import { MegaMenuModule } from 'primeng/megamenu';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
     SlideMenuModule,
     ButtonModule,
     MatSelectModule,
+    MegaMenuModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {

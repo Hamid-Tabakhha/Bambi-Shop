@@ -20,22 +20,22 @@ export class SidebarComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.items = [
-      {
-        icon: 'pi pi-fw pi-home',
-        style: 'p-slidemenu'
-      },
-      {
-        label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
-        icon: 'pi pi-fw pi-user',
-        routerLink: '/account-profile'
-      },
+      // {
+      //   icon: 'pi pi-fw pi-home',
+      //   style: 'p-slidemenu'
+      // },
+      // {
+      //   label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
+      //   icon: 'pi pi-fw pi-user',
+      //   routerLink: '/account-profile'
+      // },
       {
         label: '𝘊𝒂𝒕𝒂𝒍𝒐𝒈𝒖𝒆',
         icon: 'pi pi-fw pi-th-large',
         items: [
           {
             label: '𝘉𝘺 𝘛𝘺𝘱𝘦',
-            icon: 'pi pi-fw pi-user-plus',
+            icon: '',
             items: [{
               label: 'لوازم آرایشی',
               icon: '',
@@ -71,7 +71,7 @@ export class SidebarComponent implements OnInit {
           },
           {
             label: '𝘉𝘺 𝘚𝘬𝘪𝘯 𝘛𝘺𝘱𝘦',
-            icon: 'pi pi-fw pi-user-minus',
+            icon: '',
             items: [{
               label: 'چرب',
               icon: ''

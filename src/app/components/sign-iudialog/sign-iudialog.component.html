@@ -10,8 +10,8 @@
     <mat-form-field class="pass-login" appearance="fill">
       <mat-label>Enter your password</mat-label>
 
-      <input  matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26"  [formControl]="lpasswordFormControl" />
-
+      <input matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26"
+             [formControl]="lpasswordFormControl"/>
 
 
       <mat-error *ngIf="lpasswordFormControl.hasError('required')">
