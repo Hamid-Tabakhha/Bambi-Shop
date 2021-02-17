@@ -1,21 +1,21 @@
 <div class="log-dialog">
   <p class="sign-in-text">𝑺𝒊𝒈𝒏 𝑰𝒏</p>
   <form class="example-form">
-    <mat-form-field class="user-login">
-      <mat-label>Username</mat-label>
-      <input type="text" matInput #loginuser maxlength="25" placeholder="Enter Your Username"/>
+    <mat-form-field class="user-login" style="text-align: right">
+      <mat-label>نام کاربری</mat-label>
+      <input type="text" matInput #loginuser maxlength="25" placeholder="نام کاربری خود را وارد نمایید"/>
       <mat-hint align="end"></mat-hint>
     </mat-form-field>
 
-    <mat-form-field class="pass-login" appearance="fill">
-      <mat-label>Enter your password</mat-label>
+    <mat-form-field class="pass-login" appearance="fill" style="text-align: right">
+      <mat-label>رمز عبور</mat-label>
 
-      <input matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26"
+      <input matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26" placeholder="رمز عبور خود را وارد نمایید"
              [formControl]="lpasswordFormControl"/>
 
 
       <mat-error *ngIf="lpasswordFormControl.hasError('required')">
-        Password is <strong>required</strong>
+       <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
       <mat-hint align="end">{{ loginpass.value.length }} 6/25</mat-hint>
@@ -34,32 +34,32 @@
 
   <p class="sign-up-text">𝑺𝒊𝒈𝒏 𝑼𝒑</p>
   <form>
-    <mat-form-field class="user-register">
-      <mat-label>Username</mat-label>
-      <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="Enter Valid Username"/>
+    <mat-form-field class="user-register " style="text-align: right">
+      <mat-label>نام کاربری</mat-label>
+      <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="نام کاربری برای خود انتخاب نمایید"/>
       <mat-hint align="end">{{ reguser.value.length }} 6/25</mat-hint>
     </mat-form-field>
 
-    <mat-form-field class="pass-register">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput #regpass minlength="6" maxlength="25" placeholder="Enter Valid Password"
+    <mat-form-field class="pass-register" style="text-align: right">
+      <mat-label>رمز عبور</mat-label>
+      <input type="password" matInput #regpass minlength="6" maxlength="25" placeholder="رمز عبورتان را وارد نمایید"
              [formControl]="passwordFormControl"/>
       <mat-hint align="end">{{ regpass.value.length }} 6/25</mat-hint>
 
       <mat-error *ngIf="passwordFormControl.hasError('required')">
-        Password is <strong>required</strong>
+        <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
     </mat-form-field>
 
-    <mat-form-field class="repass-register">
-      <mat-label>re Enter Password</mat-label>
-      <input type="password" matInput #regrepass minlength="6" maxlength="25" placeholder="Enter Valid Password"
+    <mat-form-field class="repass-register" style="text-align: right">
+      <mat-label>تکرار رمز عبور</mat-label>
+      <input type="password" matInput #regrepass minlength="6" maxlength="25" placeholder="رمز عبورتان را دوباره وارد نمایید"
              [formControl]="repasswordFormControl"/>
       <mat-hint align="end">{{ regrepass.value.length }} 6/25</mat-hint>
 
       <mat-error *ngIf="repasswordFormControl.hasError('required')">
-        Password is <strong>required</strong>
+        <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
     </mat-form-field>

@@ -63,7 +63,8 @@
               {{state.name}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="stateControl.hasError('required')">لطفا <strong>استان</strong> خود را انتخاب نمایید</mat-error>
+          <mat-error *ngIf="stateControl.hasError('required')">لطفا <strong>استان</strong> خود را انتخاب نمایید
+          </mat-error>
         </mat-form-field>
       </td>
 
@@ -76,8 +77,8 @@
       <mat-label>آدرس گیرنده</mat-label>
       <textarea matInput placeholder="Ex. 100 Main St" matInput [formControl]="addressFormControl">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
       <mat-error *ngIf="addressFormControl.hasError('required')">
-      <strong>آدرس</strong> خود را وارد نمایید.
-    </mat-error>
+        <strong>آدرس</strong> خود را وارد نمایید.
+      </mat-error>
 
     </mat-form-field>
   </p>
