@@ -13,8 +13,25 @@ interface State {
 
 
 export class AccountProfileComponent implements OnInit {
+  nameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  fnameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  cityFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  zipcodeFormControl = new FormControl('', [
+    Validators.required,
+    Validators.max(10),
+    Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+  ;
+  addressFormControl = new FormControl('', [
+    Validators.required,
+  ]);
   stateControl = new FormControl('', Validators.required);
-  selectFormControl = new FormControl('', Validators.required);
+
   states: State[] = [
     {name: 'آذربایجان شرقی'},
     {name: 'آذربایجان غربی'},

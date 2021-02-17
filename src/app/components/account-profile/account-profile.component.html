@@ -3,16 +3,24 @@
 
   <table class="example-full-width" cellspacing="0">
     <tr>
+
       <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>نام گیرنده</mat-label>
-          <input matInput>
+        <mat-form-field class="example-full-width" style="text-align: right">
+          <mat-label>نام خانوادگی گیرنده</mat-label>
+          <input matInput matInput [formControl]="fnameFormControl">
+          <mat-error *ngIf="fnameFormControl.hasError('required')">
+            <strong>نام خانوادگی</strong> خود را وارد نمایید
+          </mat-error>
         </mat-form-field>
       </td>
+
       <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>نام خانوادگی گیرنده</mat-label>
-          <input matInput>
+        <mat-form-field class="example-full-width" style="text-align: right">
+          <mat-label>نام گیرنده</mat-label>
+          <input matInput [formControl]="nameFormControl">
+          <mat-error *ngIf="nameFormControl.hasError('required')">
+            <strong>نام</strong> خود را وارد نمایید
+          </mat-error>
         </mat-form-field>
       </td>
     </tr>
@@ -22,38 +30,55 @@
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>شهر</mat-label>
-          <input matInput placeholder="Ex. San Francisco">
+        <mat-form-field class="example-full-width" style="text-align: right">
+          <mat-label>کد پستی</mat-label>
+          <input matInput maxlength="10" placeholder="مثال. 3413973981" [formControl]="zipcodeFormControl">
+          <mat-error *ngIf="zipcodeFormControl.hasError('required')">
+            <strong>کد پستی</strong> خود را وارد نمایید.
+          </mat-error>
+          <mat-error *ngIf="zipcodeFormControl.hasError('max')">
+            د پستی<strong>10</strong> رقمی میباشد.
+          </mat-error>
+          <mat-error *ngIf="zipcodeFormControl.hasError('pattern')">
+            ورودی باید <strong>عدد</strong> باشد.
+          </mat-error>
         </mat-form-field>
       </td>
 
       <td>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" style="text-align: right">
+          <mat-label>شهر</mat-label>
+          <input matInput placeholder="مشهد" matInput [formControl]="cityFormControl">
+          <mat-error *ngIf="cityFormControl.hasError('required')">
+            <strong>شهر</strong> خود را وارد نمایید
+          </mat-error>
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="example-full-width" style="text-align: right">
           <mat-label>استان</mat-label>
           <mat-select disableRipple [formControl]="stateControl" required>
             <mat-option *ngFor="let state of states" [value]="state">
               {{state.name}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="stateControl.hasError('required')">Please choose a state</mat-error>
+          <mat-error *ngIf="stateControl.hasError('required')">لطفا <strong>استان</strong> خود را انتخاب نمایید</mat-error>
         </mat-form-field>
       </td>
 
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>کد پستی</mat-label>
-          <input matInput #postalCode maxlength="5" placeholder="مثال. 3413973981">
-          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-        </mat-form-field>
-      </td>
+
     </tr>
   </table>
 
   <p>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="text-align: right">
       <mat-label>آدرس گیرنده</mat-label>
-      <textarea matInput placeholder="Ex. 100 Main St">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
+      <textarea matInput placeholder="Ex. 100 Main St" matInput [formControl]="addressFormControl">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
+      <mat-error *ngIf="addressFormControl.hasError('required')">
+      <strong>آدرس</strong> خود را وارد نمایید.
+    </mat-error>
+
     </mat-form-field>
   </p>
 </form>

@@ -26,7 +26,7 @@
   width: 240px;
   height: 43px;
   left: 40px;
-  top: 129px;
+  top: 140px;
   // border-radius: 14px;
 }
 
@@ -36,7 +36,7 @@
   width: 240px;
   height: 43px;
   left: 40px;
-  top: 200px;
+  top: 220px;
   // border-radius: 14px;
 }
 
@@ -45,7 +45,7 @@
   width: 240px;
   height: 43px;
   left: 40px;
-  top: 320px;
+  top: 350px;
 }
 
 .hr {
@@ -74,7 +74,7 @@
   width: 240px;
   height: 43px;
   left: 380px;
-  top: 129px;
+  top: 108px;
 }
 
 .pass-register {
@@ -83,7 +83,15 @@
   width: 240px;
   height: 43px;
   left: 380px;
-  top: 200px;
+  top: 183px;
+}
+.repass-register{
+  background-color: rgba(174, 123, 241, 0.99);
+  position: absolute;
+  width: 240px;
+  height: 43px;
+  left: 380px;
+  top: 258px;
 }
 
 .sign-up-but {
@@ -91,5 +99,5 @@
   width: 240px;
   height: 43px;
   left: 380px;
-  top: 320px;
+  top: 350px;
 }
