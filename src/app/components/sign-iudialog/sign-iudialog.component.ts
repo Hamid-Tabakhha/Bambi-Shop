@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class SignIudialogComponent implements OnInit {
 
-
+  hide = true;
   ngOnInit(): void {
   }
 

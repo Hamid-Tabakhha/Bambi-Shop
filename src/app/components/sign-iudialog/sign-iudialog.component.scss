@@ -14,9 +14,10 @@
 }
 
 .sign-in-text {
-  position: absolute;
-  left: 45px;
-  top: 100px;
+  position: relative;
+  left: 114px;
+  top: 50px;
+  font-size: 170%;
 }
 
 .user-login {
@@ -60,10 +61,12 @@
 }
 
 .sign-up-text {
-  position: absolute;
-  left: 385px;
-  top: 100px;
+  position: relative;
+  left: 451px;
+  top: 18px;
+  font-size: 170%;
 }
+
 
 .user-register {
   background-color: rgba(174, 123, 241, 0.99);

@@ -1,5 +1,17 @@
-p{
-  margin-top: 500px;
-  position:absolute;
-  left: 400px;
+.account-info {
+  top: 200px;
+  width: 50%;
+  position: relative;
+  left: 290px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.state{
+  background-color: rgba(0,0,0,.04);
+}
+
+td {
+  padding-right: 8px;
 }

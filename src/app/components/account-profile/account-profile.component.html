@@ -1,1 +1,59 @@
-<p>account-profile works!</p>
+<form class="account-info">
+
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>نام گیرنده</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>نام خانوادگی گیرنده</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>شهر</mat-label>
+          <input matInput placeholder="Ex. San Francisco">
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>استان</mat-label>
+          <mat-select disableRipple [formControl]="stateControl" required>
+            <mat-option *ngFor="let state of states" [value]="state">
+              {{state.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="stateControl.hasError('required')">Please choose a state</mat-error>
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>کد پستی</mat-label>
+          <input matInput #postalCode maxlength="5" placeholder="مثال. 3413973981">
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>آدرس گیرنده</mat-label>
+      <textarea matInput placeholder="Ex. 100 Main St">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
+    </mat-form-field>
+  </p>
+</form>

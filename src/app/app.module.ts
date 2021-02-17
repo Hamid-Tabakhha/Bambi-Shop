@@ -23,7 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 import { AccountProfileComponent } from './components/account-profile/account-profile.component';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { ButtonModule } from 'primeng/button';
-
+import {MatSelectModule} from '@angular/material/select';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
@@ -58,6 +58,7 @@ const appRoutes: Routes = [
     MatCardModule,
     SlideMenuModule,
     ButtonModule,
+    MatSelectModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {
