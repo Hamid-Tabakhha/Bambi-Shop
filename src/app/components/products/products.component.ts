@@ -6,7 +6,7 @@ import {MegaMenuItem} from 'primeng/api';
 export interface product {
   name: string;
   price: number;
-  producerCompany: string;
+  company: string;
   img: string;
   desc: string;
 }
@@ -27,12 +27,12 @@ export class ProductsComponent implements OnInit {
   items: MegaMenuItem[];
 
   products: product[] = [
-    {name: 'One', price: 3, producerCompany: 'nasa', img: '', desc: 'new product'},
-    {name: 'two', price: 12, producerCompany: 'nasa', img: '', desc: 'new product'},
-    {name: 'three', price: 1, producerCompany: 'nasa', img: '', desc: 'new product'},
-    {name: 'four', price: 24, producerCompany: 'nasa', img: '', desc: 'new product'},
-    {name: 'five', price: 5, producerCompany: 'nasa', img: '', desc: 'new product'},
-    {name: 'six', price: 36, producerCompany: 'nasa', img: '', desc: 'new product'},
+    {name: 'One', price: 3, company: 'nasa', img: '', desc: 'new product'},
+    {name: 'two', price: 12, company: 'lsa', img: '', desc: 'new product'},
+    {name: 'three', price: 1, company: 'bsa', img: '', desc: 'new product'},
+    {name: 'four', price: 24, company: 'tesla', img: '', desc: 'new product'},
+    {name: 'five', price: 5, company: 'shisha', img: '', desc: 'new product'},
+    {name: 'six', price: 36, company: 'nina', img: '', desc: 'new product'},
   ];
 
   // tslint:disable-next-line:typedef
@@ -61,28 +61,6 @@ export class ProductsComponent implements OnInit {
           ]
         ]
       },
-      // {
-      //   label: 'نوع پوست', icon: 'pi pi-fw pi-users',
-      //   items: [
-      //     [
-      //       {
-      //         items: [{label: 'چرب'}]
-      //       }
-      //     ],
-      //     [
-      //       {
-      //         items: [{label: 'معمولی'}]
-      //       }
-      //     ],
-      //     [
-      //       {
-      //         label: '',
-      //         icon: 'pi-arrow-circle-down',
-      //         items: [{label: 'خشک'}]
-      //       }
-      //     ]
-      //   ]
-      // },
     ];
   }
 }

@@ -11,13 +11,20 @@
         </mat-card-header>
 <!--        <img mat-card-image [src]=product.img alt="Photo of a product">-->
         <mat-card-content>
-          <p class="product-info">
-            {{product.desc}}
+          <p class="product-company">
+            <strong>{{product.company}}</strong>        : شرکت سازنده
           </p>
+          <p class="price">
+            {{product.price}} $
+          </p>
+
         </mat-card-content>
         <mat-card-actions>
-<!--          <button mat-button>LIKE</button>-->
-<!--          <button mat-button>SHARE</button>-->
+
+          <button mat-button color="warn" class="adding-card-bot">
+            <mat-icon>shopping_basket</mat-icon>
+          اضافه کردن به سبد خرید
+          </button>
         </mat-card-actions>
       </mat-card>
 

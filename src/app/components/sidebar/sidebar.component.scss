@@ -15,8 +15,8 @@
 }
 
 .logo {
+  right: -8px;
   position: relative;
-  right: -10px;
 }
 
 .example-sidenav-content {
@@ -40,4 +40,8 @@
 .mat-sidenav {
   border-top-left-radius: 20px;
   left: 85%;
+}
+.slide-menu{
+  position: relative;
+  top: 30px;
 }

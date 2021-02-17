@@ -24,11 +24,11 @@ export class SidebarComponent implements OnInit {
       //   icon: 'pi pi-fw pi-home',
       //   style: 'p-slidemenu'
       // },
-      // {
-      //   label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
-      //   icon: 'pi pi-fw pi-user',
-      //   routerLink: '/account-profile'
-      // },
+      {
+        label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
+        icon: 'pi pi-fw pi-user',
+        routerLink: '/account-profile'
+      },
       {
         label: '𝘊𝒂𝒕𝒂𝒍𝒐𝒈𝒖𝒆',
         icon: 'pi pi-fw pi-th-large',
