@@ -25,6 +25,8 @@ import { SlideMenuModule } from 'primeng/slidemenu';
 import { ButtonModule } from 'primeng/button';
 import {MatSelectModule} from '@angular/material/select';
 import { MegaMenuModule } from 'primeng/megamenu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
@@ -61,6 +63,7 @@ const appRoutes: Routes = [
     ButtonModule,
     MatSelectModule,
     MegaMenuModule,
+    MatSlideToggleModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {

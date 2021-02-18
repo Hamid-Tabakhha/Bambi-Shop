@@ -1,4 +1,4 @@
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container  [autosize]="autosize"  class="example-container">
   <mat-sidenav
     #sidenav
     class="example-sidenav"
@@ -6,6 +6,7 @@
     position="end"
     [opened]="isOpenSN"
     fixedInViewport="fixedBottomGap"
+
   >
 
     <div>
@@ -13,7 +14,7 @@
     </div>
     <img class="logobg" src="assets/logobg1.png" alt="logopic">
 
-    <p-slideMenu class="slide-menu" [model]="items" [viewportHeight]="430">
+    <p-slideMenu class="slide-menu" [model]="items" [viewportHeight]="430" >
       <ng-template pTemplate="menuItem" let-item let-i="index">
         <div class="asdfesd">{{ item.label }}</div>
       </ng-template>
@@ -22,6 +23,13 @@
 
     <!--    <button #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>-->
     <!--    <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>-->
+    <mat-toolbar class="theme" color="primary">
+      <div class="flex-stretch"></div>
+      <mat-icon class="mr-8">brightness_5</mat-icon>
+      <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+      </mat-slide-toggle>
+      <mat-icon>bedtime</mat-icon>
+    </mat-toolbar>
 
   </mat-sidenav>
 </mat-sidenav-container>

@@ -13,21 +13,15 @@
 }
 
 .example-header-image {
-  background-image: url('https://www.sephora.com/productimages/sku/s1287606-main-zoom.jpg');
-  width: 188px;
-  right: 24px;
-  position: relative;
+  width: 205px;
+  right: 56px;
+  position: absolute;
 }
 
-.product-title{
-  left: 99px;
-  position: relative;
-  top: 202px;
-}
-.product-company{
-  position: relative;
-  left: 171px;
-  top: 224px;
+.product-title {
+  left: 103px;
+  position: absolute;
+  bottom: 98px;
 }
 
 .whole-products {
@@ -44,7 +38,8 @@
   border: 3px solid lightpink;
   box-shadow: 6px 0px 49px rgb(0 0 0 / 25%), inset 500px 0 79px rgb(235 199 217 / 38%);
 }
-.megamenu-panel{
+
+.megamenu-panel {
   position: absolute;
   right: 320px;
   bottom: 595px;
@@ -52,13 +47,28 @@
   top: 9.6%;
 }
 
-.adding-card-bot{
-  position: relative;
-  top: 189px;
-  left: 60px;
+.adding-card-bot {
+  bottom: 24px;
+  position: absolute;
+  left: 35px;
 }
-.price{
-  position: relative;
-  top: 190px;
-  left: 14px;
+
+.price {
+  position: absolute;
+  left: 220px;
+  bottom: 32px;
+}
+
+.producer{
+
+  position: absolute;
+  left: 22px;
+  bottom: 62px;
+}
+
+.producer-name{
+
+  position: absolute;
+  left: 229px;
+  bottom: 71px;
 }

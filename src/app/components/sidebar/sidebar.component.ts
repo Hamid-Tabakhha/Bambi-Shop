@@ -1,11 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
+
+
 export class SidebarComponent implements OnInit {
 
   @Input() isOpenSN;
@@ -15,7 +18,14 @@ export class SidebarComponent implements OnInit {
   constructor() {
   }
 
+
+toggleControl = new FormControl(false);
   items: MenuItem[];
+
+
+  autosize = false;
+
+  // tslint:disable-next-line:typedef
 
   // tslint:disable-next-line:typedef
   ngOnInit() {

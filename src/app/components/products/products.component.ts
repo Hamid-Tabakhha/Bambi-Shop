@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {GettingProductDataService} from '../../Services/getting-product-data.service';
 import {MegaMenuItem} from 'primeng/api';
+import { ShareServiceService } from '../../Services/share-service.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 // tslint:disable-next-line:class-name
-export interface product {
-  name: string;
-  price: number;
-  company: string;
-  img: string;
-  desc: string;
-}
+// export interface product {
+//   name: string;
+//   price: number;
+//   company: string;
+//   img: string;
+//   desc: string;
+// }
 
 @Component({
   selector: 'app-products',
@@ -19,24 +21,16 @@ export interface product {
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private gettingData: GettingProductDataService) {
+  constructor(private sharedService: ShareServiceService, private sanitizer:DomSanitizer) {
   }
-
+  products = [];
   action = false;
 
+
   items: MegaMenuItem[];
-
-  products: product[] = [
-    {name: 'One', price: 3, company: 'nasa', img: '', desc: 'new product'},
-    {name: 'two', price: 12, company: 'lsa', img: '', desc: 'new product'},
-    {name: 'three', price: 1, company: 'bsa', img: '', desc: 'new product'},
-    {name: 'four', price: 24, company: 'tesla', img: '', desc: 'new product'},
-    {name: 'five', price: 5, company: 'shisha', img: '', desc: 'new product'},
-    {name: 'six', price: 36, company: 'nina', img: '', desc: 'new product'},
-  ];
-
   // tslint:disable-next-line:typedef
   ngOnInit() {
+    this.getProduct();
     this.items = [
       {
         label: 'نوع محصول', icon: 'pi pi-fw pi-th-large',
@@ -62,5 +56,15 @@ export class ProductsComponent implements OnInit {
         ]
       },
     ];
+  }
+
+  getProduct(){
+    this.sharedService.getProducts().subscribe(data => {
+      this.products = data;
+    })
+  }
+
+  transform(base64img){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(base64img)
   }
 }
