@@ -3,6 +3,13 @@
 <img class= "side-image1" src= "assets/makeup1.jpg" alt="Side Img">
 
 <router-outlet></router-outlet>
+<mat-toolbar class="theme" color="primary">
+  <div class="flex-stretch"></div>
+  <mat-icon class="mr-8">brightness_5</mat-icon>
+  <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+  </mat-slide-toggle>
+  <mat-icon>bedtime</mat-icon>
+</mat-toolbar>
 
 <img class="side-image2" src="assets/sidepage2.jpg" alt="Side Img">
 

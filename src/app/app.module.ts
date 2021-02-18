@@ -26,11 +26,13 @@ import { ButtonModule } from 'primeng/button';
 import {MatSelectModule} from '@angular/material/select';
 import { MegaMenuModule } from 'primeng/megamenu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ProductsInfoPageComponent } from './components/products/products-info-page/products-info-page.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
   {path: 'account-profile', component: AccountProfileComponent},
+  {path: 'products/products-info-page/:id', component:ProductsInfoPageComponent},
 ];
 
 @NgModule({
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     ProductsComponent,
     SignIudialogComponent,
     AccountProfileComponent,
+    ProductsInfoPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, HostBinding, Input, OnInit, Output} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {FormControl} from '@angular/forms';
+import {OverlayContainer} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,17 +19,16 @@ export class SidebarComponent implements OnInit {
   constructor() {
   }
 
-
 toggleControl = new FormControl(false);
   items: MenuItem[];
 
 
   autosize = false;
-
   // tslint:disable-next-line:typedef
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
+
     this.items = [
       // {
       //   icon: 'pi pi-fw pi-home',
@@ -38,6 +38,7 @@ toggleControl = new FormControl(false);
         label: '𝘼𝙖𝙘𝙘𝙤𝙪𝙣𝙩',
         icon: 'pi pi-fw pi-user',
         routerLink: '/account-profile'
+
       },
       {
         label: '𝘊𝒂𝒕𝒂𝒍𝒐𝒈𝒖𝒆',
