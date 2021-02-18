@@ -5,25 +5,29 @@
 }
 
 .example-card {
-  max-width: 400px;
-  margin: 100px;
-  height: 370px;
-  width: 311px;
+  max-width: 550%;
+  height: 520px;
+  left: 73px;
+  top: 20px;
+  width: 1025px;
   position: relative;
-  margin: 0px;
   box-shadow: 0px 0px 2px 4px rgb(0 0 0 / 3%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 .example-header-image {
-  width: 205px;
-  right: 56px;
+  height: 470px;
+  right: 0px;
   position: absolute;
 }
 
 .product-title {
-  left: 103px;
+  font-size: 55px;
+  left: 240px;
   position: absolute;
-  bottom: 98px;
+  bottom: 430px;
+}
+.mat-title{
+  font-size: 100px;
 }
 
 .whole-products {
@@ -53,6 +57,8 @@
   bottom: 24px;
   position: absolute;
   left: 35px;
+  width: 280px;
+  height: 50px;
 }
 
 .price {
@@ -62,15 +68,30 @@
 }
 
 .producer{
-
   position: absolute;
-  left: 22px;
-  bottom: 62px;
+  right: 619px;
+  bottom: 127px;
+  font-size: 17px;
+  max-width: 10%;
 }
 
 .producer-name{
-
   position: absolute;
-  left: 229px;
-  bottom: 71px;
+  right: 485px;
+  bottom: 127px;
+  font-size: 20px;
+}
+
+.p-info{
+  position: absolute;
+  font-size: 25px;
+  right: 561px;
+  top: 239px;
+}
+
+.back-but{
+  position: absolute;
+  bottom: 607px;
+  left: 181px;
+  top: auto;
 }

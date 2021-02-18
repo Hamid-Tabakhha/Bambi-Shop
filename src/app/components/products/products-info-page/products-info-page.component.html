@@ -1,27 +1,37 @@
+<button
+  mat-mini-fab
+  class="back-but"
+  aria-label
+  routerLink="/"
+>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
 <div class="whole-products">
 
-      <mat-card *ngFor="let product of productData" class="example-card">
-        <mat-card-header>
-          <img class="example-header-image" [src]="transform('data:image/png;base64,' + product.pic)"
-               alt="">
-          <div class="product-title">
-            <mat-card-title routerLink="/products/products-info-page" >{{product.productname}}</mat-card-title>
-          </div>
-        </mat-card-header>
+  <mat-card *ngFor="let product of productData" class="example-card">
+    <mat-card-header>
+      <img class="example-header-image" [src]="transform('data:image/png;base64,' + product.pic)"
+           alt="">
+      <div class="product-title">
+        {{product.productname}}
+      </div>
+    </mat-card-header>
 
-        <mat-card-content>
-          <a mat-flat-button class="producer">{{product.company}}</a>
-          <p class="producer-name">: شرکت سازنده</p>
+    <mat-card-content>
+      <a class="p-info">{{product.productinfo}}</a>
+      <a class="producer">{{product.company}}</a>
+      <p class="producer-name">: شرکت سازنده</p>
 
-        </mat-card-content>
-        <mat-card-actions>
+    </mat-card-content>
+    <mat-card-actions>
 
-          <button mat-raised-button color="accent" class="adding-card-bot">
-            <mat-icon>shopping_basket</mat-icon>
-            {{product.price}} $ |
-            اضافه کردن به سبد خرید
-          </button>
-        </mat-card-actions>
-      </mat-card>
+      <button mat-raised-button color="accent" class="adding-card-bot">
+        <mat-icon>shopping_basket</mat-icon>
+        {{product.price}} $ |
+        اضافه کردن به سبد خرید
+      </button>
+    </mat-card-actions>
+  </mat-card>
 
 </div>

@@ -27,7 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { MegaMenuModule } from 'primeng/megamenu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ProductsInfoPageComponent } from './components/products/products-info-page/products-info-page.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
@@ -67,6 +68,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MegaMenuModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {
