@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, Input,Output, EventEmitter} from '@angular/core';
 import {NavbarComponent} from 'src/app/components/navbar/navbar.component';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormControl, Validators} from '@angular/forms';
@@ -19,7 +19,7 @@ export class SignIudialogComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   message = '';
-  flag : null;
+  @Input() flag =false;
   username:null;
 
   formSignIn: any = {
@@ -62,6 +62,10 @@ export class SignIudialogComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.tokenStorage.saveFlag(data.flag);
+        this.tokenStorage.saveToken(data.token);
+        this.tokenStorage.saveUser(data.username);
+        this.reloadPage();
       },
       err => {
         this.message = err.error.message;
@@ -80,6 +84,7 @@ export class SignIudialogComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.reloadPage();
+        this.flag = true;
       },
       err => {
         this.message = err.error.message;
@@ -87,13 +92,7 @@ export class SignIudialogComponent implements OnInit {
       }
 
     );
-    console.log('flag is' + this.tokenStorage.getFlag());
-    if (this.flag ==  true){
-      console.log('trueee')
-    }
-    else {
-      console.log('falseee');
-    }
+
   }
 
   reloadPage(): void {

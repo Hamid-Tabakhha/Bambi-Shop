@@ -1,36 +1,44 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {SignIudialogComponent} from 'src/app/components/sign-iudialog/sign-iudialog.component';
-import { TokenStorageService } from '../../_services/token-storage.service';
+import {TokenStorageService} from '../../_services/token-storage.service';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {UserSheetComponent} from 'src/app/components/user-sheet/user-sheet.component';
+
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+
+
 export class NavbarComponent implements OnInit {
 
-  currentUser: any;
   isShowing = false;
   iconing = false;
-  flag;
   value = '';
   // tslint:disable-next-line:variable-name
   public menu_icon = 'menu';
-  public account_icon = 'home'
+  public account_icon = 'home';
+  loggedMessage = '';
+  currentUser;
 
-  constructor(public dialog: MatDialog,private token: TokenStorageService) {
+  constructor(public dialog: MatDialog, private token: TokenStorageService, private _bottomSheet: MatBottomSheet) {
   }
 
 
   ngOnInit(): void {
-    this.currentUser = this.token.getUser();
-    this.flag = this.token.getFlag();
-  }
 
-  signOut(): void {
-    window.sessionStorage.clear();
-    this.reloadPage();
+    this.currentUser = this.token.getUser();
+    if (this.token.getFlag() == 'true') {
+      this.account_icon = 'how_to_reg';
+      this.loggedMessage = ':)  خوش اومدی ' + ' ' + this.token.getUser();
+    } else {
+      this.account_icon = 'person_add';
+      this.loggedMessage = 'ورود / عضویت';
+    }
+
   }
 
   // tslint:disable-next-line:typedef
@@ -46,25 +54,14 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  // tslint:disable-next-line:typedef
-  // clickSignDialog() {
-  //   this.isShowingSign = true;
-  // }
-
-
-
-
   openDialog(): void {
-    this.dialog.open(SignIudialogComponent, {});
-  }
-
-  reloadPage(): void {
-    window.location.reload();
+    if (this.token.getFlag() == 'true') {
+      this._bottomSheet.open(UserSheetComponent);
+    } else {
+      this.dialog.open(SignIudialogComponent, {});
+    }
   }
 
 }
-
-
-
 
 

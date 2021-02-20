@@ -5,10 +5,9 @@
     <span>فروشگاه بمبی</span>
     <button mat-button class="account-icon" aria-label
             (click)="openDialog()"
-    > ورود / عضویت
+    > {{loggedMessage}}
       <mat-icon class="acc-icon">{{account_icon}}</mat-icon>
     </button>
-<button (click)=" signOut()" >log out</button>
 
 <!--    <label class="searchbar">-->
 <!--      <input class="search_input" type="text" name="" placeholder="Search...">-->
@@ -17,8 +16,6 @@
 
 <label class="space"></label>
 
-    <strong>Token:</strong>
-    {{ currentUser }}
 
 <button
   mat-icon-button

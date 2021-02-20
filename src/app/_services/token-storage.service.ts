@@ -12,6 +12,10 @@ export class TokenStorageService {
 
   signOut(): void {
     window.sessionStorage.clear();
+    this.reloadPage();
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 
   public saveToken(token: string): void {

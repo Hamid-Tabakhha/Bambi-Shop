@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../../_services/auth.service';
 
 interface State {
   name: string;
@@ -13,6 +14,27 @@ interface State {
 
 
 export class AccountProfileComponent implements OnInit {
+
+  formShopConfirm: any = {
+    api_token:null,
+    fname: null,
+    lname: null,
+    phone_number: null,
+    province: null,
+    city: null,
+    postcode: null,
+    address: null,
+  };
+
+  constructor(private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+  }
+
+
+
+
   nameFormControl = new FormControl('', [
     Validators.required,
   ]);
@@ -71,10 +93,6 @@ export class AccountProfileComponent implements OnInit {
     {name: 'یزد'},
   ];
 
-  constructor() {
-  }
 
-  ngOnInit(): void {
-  }
 
 }

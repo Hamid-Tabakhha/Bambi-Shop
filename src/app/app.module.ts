@@ -29,6 +29,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ProductsInfoPageComponent } from './components/products/products-info-page/products-info-page.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { UserSheetComponent } from './components/user-sheet/user-sheet.component';
+import {MatListModule} from '@angular/material/list';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent  },
@@ -45,6 +48,7 @@ const appRoutes: Routes = [
     SignIudialogComponent,
     AccountProfileComponent,
     ProductsInfoPageComponent,
+    UserSheetComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatBottomSheetModule,
+    MatListModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {

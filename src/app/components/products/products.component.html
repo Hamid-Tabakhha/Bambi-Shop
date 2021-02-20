@@ -9,7 +9,7 @@
                alt="">
           <div class="product-title">
             <mat-card-title>
-            <button mat-button color="accent"[routerLink]="['/products/products-info-page/',
+              <button mat-button color="accent" [routerLink]="['/products/products-info-page/',
               product.id]">{{product.productname}}</button>
             </mat-card-title>
           </div>
@@ -22,7 +22,7 @@
         </mat-card-content>
         <mat-card-actions>
 
-          <button mat-raised-button color="accent" class="adding-card-bot">
+          <button mat-raised-button color="accent" class="adding-card-bot" (click)="addToCartt(product.id)">
             <mat-icon>shopping_basket</mat-icon>
             {{product.price}} $ |
             اضافه کردن به سبد خرید

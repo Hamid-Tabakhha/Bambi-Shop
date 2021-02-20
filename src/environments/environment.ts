@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://Bmabishop.herokuapp.com/'
+  baseURL: 'http://bmabishop.herokuapp.com/'
 };
 
 /*

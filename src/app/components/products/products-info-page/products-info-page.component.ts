@@ -28,7 +28,7 @@ export class ProductsInfoPageComponent implements OnInit {
   getProductById(id: number) {
     this.sharedService.getProductsById(id).subscribe(data => {
       this.productData = data;
-      console.log(data)
+      console.log(data);
 
     });
   }
