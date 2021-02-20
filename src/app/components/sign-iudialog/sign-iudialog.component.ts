@@ -1,23 +1,34 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {NavbarComponent} from 'src/app/components/navbar/navbar.component';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import {FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../../_services/auth.service';
+import {TokenStorageService} from '../../_services/token-storage.service';
 
 @Component({
   selector: 'app-sing-iudialog',
   templateUrl: './sign-iudialog.component.html',
   styleUrls: ['./sign-iudialog.component.scss']
 })
-export class SignIudialogComponent {
+export class SignIudialogComponent implements OnInit {
+  formSignUp: any = {
+    username: null,
+    password: null,
+    password_confirmation: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  message = '';
+  flag : null;
+  username:null;
+
+  formSignIn: any = {
+    username: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  roles: string[] = [];
 
   hide = true;
   lpasswordFormControl = new FormControl('', [
@@ -32,8 +43,61 @@ export class SignIudialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: NavbarComponent) {
+    public data: NavbarComponent, private authService: AuthService, private tokenStorage: TokenStorageService, ) {
   }
 
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
+    this.flag = this.tokenStorage.getFlag();
+  }
+
+  onSubmitSignUp(): void {
+    const {username, password, password_confirmation} = this.formSignUp;
+
+    this.authService.register(username, password_confirmation, password).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.message = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
+  }
+
+  onSubmitSignIn(): void {
+    const {username, password} = this.formSignIn;
+    this.authService.login(username, password).subscribe(
+      data => {
+        this.tokenStorage.saveFlag(data.flag);
+        this.tokenStorage.saveToken(data.token);
+        this.tokenStorage.saveUser(data.username);
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.reloadPage();
+      },
+      err => {
+        this.message = err.error.message;
+        this.isLoginFailed = true;
+      }
+
+    );
+    console.log('flag is' + this.tokenStorage.getFlag());
+    if (this.flag ==  true){
+      console.log('trueee')
+    }
+    else {
+      console.log('falseee');
+    }
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 
 }

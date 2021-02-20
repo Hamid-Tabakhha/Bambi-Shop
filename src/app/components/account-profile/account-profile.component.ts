@@ -31,6 +31,11 @@ export class AccountProfileComponent implements OnInit {
     Validators.required,
   ]);
   stateControl = new FormControl('', Validators.required);
+  phoneNumberFormControl = new FormControl('', [
+    Validators.required,
+    Validators.max(11),
+    Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+  ;
 
   states: State[] = [
     {name: 'آذربایجان شرقی'},

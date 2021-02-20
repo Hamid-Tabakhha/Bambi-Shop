@@ -1,20 +1,24 @@
+
+
 <p>
   <mat-toolbar class="whole-navbar" color="primary">
     <span>فروشگاه بمبی</span>
     <button mat-button class="account-icon" aria-label
             (click)="openDialog()"
     > ورود / عضویت
-      <mat-icon class="acc-icon">person_pin</mat-icon>
+      <mat-icon class="acc-icon">{{account_icon}}</mat-icon>
     </button>
+<button (click)=" signOut()" >log out</button>
 
-
-    <label class="searchbar">
-      <input class="search_input" type="text" name="" placeholder="Search...">
-      <mat-icon class="search_icon">search</mat-icon>
-    </label>
+<!--    <label class="searchbar">-->
+<!--      <input class="search_input" type="text" name="" placeholder="Search...">-->
+<!--      <mat-icon class="search_icon">search</mat-icon>-->
+<!--    </label>-->
 
 <label class="space"></label>
 
+    <strong>Token:</strong>
+    {{ currentUser }}
 
 <button
   mat-icon-button

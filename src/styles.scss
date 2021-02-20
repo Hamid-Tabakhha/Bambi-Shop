@@ -1,5 +1,18 @@
 @import "~@angular/material/theming";
 @include mat-core();
+
+
+$dark-primary: mat-palette($mat-indigo,A50);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  )
+));
+
 $angular-primary: mat-palette($mat-deep-purple);
 $angular-accent: mat-palette($mat-pink, A200, A100, A400);
 $angular-warn: mat-palette($mat-red);
@@ -23,12 +36,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $angular-dark-theme: mat-dark-theme(
     (
       color: (
-        primary: $angular-accent,
-        accent: $angular-accent,
-        warn: $angular-warn,
+        primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
       ),
     )
 );
+
+
 .darkMode {
   @include angular-material-color($angular-dark-theme);
 }

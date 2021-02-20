@@ -1,49 +1,81 @@
 <div class="log-dialog">
   <p class="sign-in-text">𝑺𝒊𝒈𝒏 𝑰𝒏</p>
-  <form class="example-form">
+  <form *ngIf="!isLoggedIn"
+        name="formSignIn"
+        (ngSubmit)="f.form.valid && onSubmitSignIn()"
+        #f="ngForm"
+        novalidate
+
+
+        class="example-form">
     <mat-form-field class="user-login" style="text-align: right">
       <mat-label>نام کاربری</mat-label>
-      <input type="text" matInput #loginuser maxlength="25" placeholder="نام کاربری خود را وارد نمایید"/>
+      <input type="text" matInput #loginuser maxlength="25" placeholder="نام کاربری خود را وارد نمایید"
+             [(ngModel)]="formSignIn.username"
+             name="username"
+      />
       <mat-hint align="end"></mat-hint>
     </mat-form-field>
 
     <mat-form-field class="pass-login" appearance="fill" style="text-align: right">
       <mat-label>رمز عبور</mat-label>
 
-      <input matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26" placeholder="رمز عبور خود را وارد نمایید"
-             [formControl]="lpasswordFormControl"/>
+      <input matInput #loginpass [type]="hide ? 'password' : 'text'" minlength="6" maxlength="26"
+             placeholder="رمز عبور خود را وارد نمایید"
+             [formControl]="lpasswordFormControl"
+             [(ngModel)]="formSignIn.password"
+             name="password"
+      />
 
 
       <mat-error *ngIf="lpasswordFormControl.hasError('required')">
-       <strong>رمز عبور</strong> خود را وارد نمایید
+        <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
       <mat-hint align="end">{{ loginpass.value.length }} 6/25</mat-hint>
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      <button  type="submit" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
       </button>
     </mat-form-field>
+    <button (click)="onSubmitSignIn()" class="sign-in-but" mat-raised-button color="primary">Sign In</button>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="f.submitted && isLoginFailed"
+    >
+      Login failed: {{ message }}
+    </div>
+
   </form>
 
-  <button class="sign-in-but" mat-raised-button color="primary">Sign In</button>
 
   <hr class="hr"/>
 
 
   <p class="sign-up-text">𝑺𝒊𝒈𝒏 𝑼𝒑</p>
-  <form>
+  <form
+    *ngIf="!isSuccessful"
+    name="formSignUp"
+    (ngSubmit)="f.form.valid && onSubmitSignUp"
+    #f="ngForm"
+    novalidate>
     <mat-form-field class="user-register " style="text-align: right">
       <mat-label>نام کاربری</mat-label>
-      <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="نام کاربری برای خود انتخاب نمایید"/>
+      <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="نام کاربری برای خود انتخاب نمایید"
+             [(ngModel)]="formSignUp.username"
+             name="username"/>
       <mat-hint align="end">{{ reguser.value.length }} 6/25</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="pass-register" style="text-align: right">
       <mat-label>رمز عبور</mat-label>
       <input type="password" matInput #regpass minlength="6" maxlength="25" placeholder="رمز عبورتان را وارد نمایید"
-             [formControl]="passwordFormControl"/>
+             [formControl]="passwordFormControl"
+             [(ngModel)]="formSignUp.password"
+             name="password"/>
       <mat-hint align="end">{{ regpass.value.length }} 6/25</mat-hint>
 
       <mat-error *ngIf="passwordFormControl.hasError('required')">
@@ -54,8 +86,12 @@
 
     <mat-form-field class="repass-register" style="text-align: right">
       <mat-label>تکرار رمز عبور</mat-label>
-      <input type="password" matInput #regrepass minlength="6" maxlength="25" placeholder="رمز عبورتان را دوباره وارد نمایید"
-             [formControl]="repasswordFormControl"/>
+      <input type="password" matInput #regrepass minlength="6" maxlength="25"
+             placeholder="رمز عبورتان را دوباره وارد نمایید"
+             [formControl]="repasswordFormControl"
+             [(ngModel)]="formSignUp.password_confirmation"
+             name="password_confirmation"
+      />
       <mat-hint align="end">{{ regrepass.value.length }} 6/25</mat-hint>
 
       <mat-error *ngIf="repasswordFormControl.hasError('required')">
@@ -63,8 +99,8 @@
       </mat-error>
 
     </mat-form-field>
+    <button (click)="onSubmitSignUp()" type="submit" class="sign-up-but" mat-raised-button color="primary">Sign Up</button>
   </form>
 
-  <button class="sign-up-but" mat-raised-button color="primary">Sign Up</button>
 
 </div>

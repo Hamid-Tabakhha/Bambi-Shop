@@ -1,15 +1,18 @@
-<button
-  mat-mini-fab
-  class="back-but"
-  aria-label
-  routerLink="/"
->
-  <mat-icon>arrow_back</mat-icon>
-</button>
+
 
 <div class="whole-products">
 
   <mat-card *ngFor="let product of productData" class="example-card">
+
+    <button
+      mat-mini-fab
+      class="back-but"
+      aria-label
+      routerLink="/"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
     <mat-card-header>
       <img class="example-header-image" [src]="transform('data:image/png;base64,' + product.pic)"
            alt="">

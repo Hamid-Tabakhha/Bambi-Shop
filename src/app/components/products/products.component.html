@@ -8,8 +8,10 @@
           <img class="example-header-image" [src]="transform('data:image/png;base64,' + product.pic)"
                alt="">
           <div class="product-title">
-            <mat-card-title
-              [routerLink]="['/products/products-info-page/', product.id]">{{product.productname}}</mat-card-title>
+            <mat-card-title>
+            <button mat-button color="accent"[routerLink]="['/products/products-info-page/',
+              product.id]">{{product.productname}}</button>
+            </mat-card-title>
           </div>
         </mat-card-header>
 

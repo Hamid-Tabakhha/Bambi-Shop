@@ -23,4 +23,30 @@
   transform: rotate(180deg);
 }
 
+.theme{
+  position: fixed;
+  width: 1025px;
+  left: 173px;
+  bottom: 2px;
+  height: 69px;
+}
 
+
+.logobg {
+  transform: rotate(
+      15deg
+  );
+
+  position: absolute;
+  height: 82px;
+  opacity: 0.5;
+  width: 142px;
+  right: 448px;
+  top: -3px;
+}
+
+.logo {
+  position: absolute;
+  right: 456px;
+  bottom: 14px;;
+}

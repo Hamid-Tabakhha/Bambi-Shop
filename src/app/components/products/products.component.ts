@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
 
   products = [];
   action = false;
-
+  isShowingCategory : string;
 
   items: MegaMenuItem[];
 
@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
     this.getProduct();
     this.items = [
       {
-        label: 'نوع محصول', icon: 'pi pi-fw pi-th-large',
+        label: 'دسته بندی محصولات' , icon: 'pi pi-fw pi-th-large',
         items: [
           [{
             label: '',
@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
               label: 'آرایشی',
               items: [{label: 'رژ لب', command: event => this.getLipstickProduct()}, {
                 label: 'کرم پودر',
-                command: event => this.getCreamProduct()
+                command: event => this.getCreamProduct() ,
               }, {label: 'ریمل', command: event => this.getMascaraProduct()}, {label: 'لاک', command: event => this.getNailpolishProduct()}]
             },
           ],
@@ -61,6 +61,10 @@ export class ProductsComponent implements OnInit {
         ]
       },
     ];
+  }
+
+  getName(label:string){
+    this.isShowingCategory = label;
   }
 
   getProduct() {
