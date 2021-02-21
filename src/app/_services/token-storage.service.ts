@@ -27,10 +27,10 @@ export class TokenStorageService {
     return sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(username: string): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, username);
-  }
+    public saveUser(username: string): void {
+      window.sessionStorage.removeItem(USER_KEY);
+      window.sessionStorage.setItem(USER_KEY, username);
+    }
 
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MegaMenuItem} from 'primeng/api';
 import {ShareServiceService} from '../../Services/share-service.service';
 import {DomSanitizer} from '@angular/platform-browser';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -11,16 +11,17 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private sharedService: ShareServiceService, private sanitizer: DomSanitizer) {
+  constructor(private sharedService: ShareServiceService, private sanitizer: DomSanitizer,private _snackBar: MatSnackBar) {
   }
 
   products = [];
-  action = false;
+  action = 'done';
+  // tslint:disable-next-line:typedef
+  message= 'به سبد خرید اضافه شد';
+
   isShowingCategory: string;
 
   items: MegaMenuItem[];
-
-  // tslint:disable-next-line:typedef
   ngOnInit() {
     this.getProduct();
     this.items = [
@@ -142,5 +143,11 @@ export class ProductsComponent implements OnInit {
 
   addToCartt(productId) {
     this.sharedService.addToCart(productId);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }

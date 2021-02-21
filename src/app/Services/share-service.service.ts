@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable,BehaviorSubject} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {TokenStorageService} from '../_services/token-storage.service';
 
@@ -8,12 +8,21 @@ import {TokenStorageService} from '../_services/token-storage.service';
   providedIn: 'root'
 })
 
-
 export class ShareServiceService {
+  basket = []
+  public content = new BehaviorSubject<any>(this.basket);
+  public share = new BehaviorSubject<any>(this.basket).asObservable();
+  public Employeename = [];
   // product: Product;
   constructor(private http: HttpClient, private token: TokenStorageService) {
   }
 
+  getLatestValue(data) {
+    debugger;
+    this.content.next(data);
+    this.Employeename = data;
+    console.log(this.Employeename);
+  }
 
   getProducts(): Observable<any> {
     let headers: HttpHeaders = new HttpHeaders();
@@ -22,9 +31,7 @@ export class ShareServiceService {
   }
 
   getShoppingList(): Observable<any> {
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Accept', 'application/json');
-    return this.http.post(environment.baseURL + 'api/show-cart', {headers: headers, username: this.token.getUser()});
+    return this.http.post(environment.baseURL + 'api/show-cart', {username: this.token.getUser()});
   }
 
   getProductsById(id: number): Observable<any> {
@@ -93,7 +100,6 @@ export class ShareServiceService {
   }
 
   addToCart(productId) {
-    console.log(productId);
     return this.http.post(environment.baseURL + 'api/add-cart', {
       username: this.token.getUser(),
       product_id: productId

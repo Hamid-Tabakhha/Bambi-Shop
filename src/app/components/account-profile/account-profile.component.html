@@ -1,7 +1,15 @@
 <mat-card class="card">
 
-  <form class="account-info">
+  <button
+    mat-mini-fab
+    class="back-but"
+    aria-label
+    routerLink="/"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
 
+  <form (ngSubmit)="confirm()" class="account-info">
 
     <table class="example-full-width" cellspacing="0">
       <tr>
@@ -9,7 +17,7 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>نام خانوادگی گیرنده</mat-label>
-            <input matInput matInput [formControl]="fnameFormControl">
+            <input matInput matInput [(ngModel)]="formShopConfirm.lname" [formControl]="fnameFormControl">
             <mat-error *ngIf="fnameFormControl.hasError('required')">
               <strong>نام خانوادگی</strong> خود را وارد نمایید
             </mat-error>
@@ -19,7 +27,7 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>نام گیرنده</mat-label>
-            <input matInput [formControl]="nameFormControl">
+            <input matInput [(ngModel)]="formShopConfirm.fname" [formControl]="nameFormControl">
             <mat-error *ngIf="nameFormControl.hasError('required')">
               <strong>نام</strong> خود را وارد نمایید
             </mat-error>
@@ -34,12 +42,13 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>کد پستی</mat-label>
-            <input matInput maxlength="10" placeholder="مثال. 3413973981" [formControl]="zipcodeFormControl">
+            <input [(ngModel)]="formShopConfirm.postcode" matInput maxlength="10" placeholder="مثال. 3413973981"
+                   [formControl]="zipcodeFormControl">
             <mat-error *ngIf="zipcodeFormControl.hasError('required')">
               <strong>کد پستی</strong> خود را وارد نمایید.
             </mat-error>
-            <mat-error *ngIf="zipcodeFormControl.hasError('max')">
-              د پستی<strong>10</strong> رقمی میباشد.
+            <mat-error *ngIf="zipcodeFormControl.hasError('minLength')">
+              کد پستی<strong>10</strong> رقمی میباشد.
             </mat-error>
             <mat-error *ngIf="zipcodeFormControl.hasError('pattern')">
               ورودی باید <strong>عدد</strong> باشد.
@@ -49,12 +58,13 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>شماره تلفن</mat-label>
-            <input matInput maxlength="11" placeholder="مثال. 09123456789" [formControl]="phoneNumberFormControl">
+            <input [(ngModel)]="formShopConfirm.phone_number" matInput maxlength="11" placeholder="مثال. 09123456789"
+                   [formControl]="phoneNumberFormControl">
             <mat-error *ngIf="phoneNumberFormControl.hasError('required')">
-              <strong>کد پستی</strong> خود را وارد نمایید.
+              <strong>شماره تلفن</strong> خود را وارد نمایید.
             </mat-error>
-            <mat-error *ngIf="phoneNumberFormControl.hasError('max')">
-              د پستی<strong>10</strong> رقمی میباشد.
+            <mat-error *ngIf="phoneNumberFormControl.hasError('minLength')">
+              شماره تلفن<strong>11</strong> رقمی میباشد.
             </mat-error>
             <mat-error *ngIf="phoneNumberFormControl.hasError('pattern')">
               ورودی باید <strong>عدد</strong> باشد.
@@ -71,7 +81,8 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>شهر</mat-label>
-            <input matInput placeholder="مشهد" matInput [formControl]="cityFormControl">
+            <input [(ngModel)]="formShopConfirm.cityy" matInput placeholder="مشهد" matInput
+                   [formControl]="cityFormControl">
             <mat-error *ngIf="cityFormControl.hasError('required')">
               <strong>شهر</strong> خود را وارد نمایید
             </mat-error>
@@ -81,7 +92,7 @@
         <td>
           <mat-form-field class="example-full-width" style="text-align: right">
             <mat-label>استان</mat-label>
-            <mat-select disableRipple [formControl]="stateControl" required>
+            <mat-select [(ngModel)]="formShopConfirm.province" disableRipple [formControl]="stateControl" required>
               <mat-option *ngFor="let state of states" [value]="state">
                 {{state.name}}
               </mat-option>
@@ -98,12 +109,27 @@
     <p>
       <mat-form-field class="example-full-width" style="text-align: right">
         <mat-label>آدرس گیرنده</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St" matInput [formControl]="addressFormControl">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
+        <textarea [(ngModel)]="formShopConfirm.addressa" matInput placeholder="Ex. 100 Main St" matInput
+                  [formControl]="addressFormControl">تهران خ.آزادی خ.دام پزشکی ک.۶۴ پ.46 ط.اول</textarea>
         <mat-error *ngIf="addressFormControl.hasError('required')">
           <strong>آدرس</strong> خود را وارد نمایید.
         </mat-error>
 
       </mat-form-field>
     </p>
+    <button type="submit" mat-raised-button color="accent" class="adding-card-bot">
+      <mat-icon>done_outline</mat-icon>
+      تایید
+    </button>
   </form>
+  <div *ngIf="isShow">
+    <p class="name">{{formShopConfirm.fname}} :نام </p>
+    <p class="fname">{{formShopConfirm.lname}} :نام خانوادگی</p>
+    <p class="phone">{{formShopConfirm.phone_number}} :شماره تلفن</p>
+<!--    <p class="province">{{formShopConfirm.province}} :استان</p>-->
+    <p class="city">{{formShopConfirm.cityy}} :شهر</p>
+    <p class="postcode">{{formShopConfirm.postcode}} :کد پستی</p>
+    <p class="address">{{formShopConfirm.addressa}} :آدرس</p>
+  </div>
+
 </mat-card>

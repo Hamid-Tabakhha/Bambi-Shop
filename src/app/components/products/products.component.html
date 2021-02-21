@@ -22,7 +22,8 @@
         </mat-card-content>
         <mat-card-actions>
 
-          <button mat-raised-button color="accent" class="adding-card-bot" (click)="addToCartt(product.id)">
+          <button mat-raised-button color="accent" class="adding-card-bot"
+                  (click)="addToCartt(product.id);openSnackBar(message, action)">
             <mat-icon>shopping_basket</mat-icon>
             {{product.price}} $ |
             اضافه کردن به سبد خرید

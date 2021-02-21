@@ -1,18 +1,16 @@
 <mat-nav-list>
 
-
   <mat-card *ngFor="let basket of baskets" class="example-card">
-    <p>inja</p>
-    <img class="example-header-image" [src]="transform('data:image/png;base64,' + basket.pic)">
+    <p>{{basket.price}}</p>
   </mat-card>
 
 
-  <a  mat-list-item class="shop-cart-submit" >
+  <a mat-list-item class="shop-cart-submit" routerLink="/account-profile">
     <span mat-line class="logout-text">نهایی کردن خرید</span>
   </a>
 
 
-  <a (click)=" signOut()" mat-list-item class="logout" >
+  <a (click)=" signOut()" mat-list-item class="logout">
     <span mat-line class="logout-text">خروج</span>
   </a>
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {AuthService} from '../../_services/auth.service';
+import {strict} from 'assert';
 
 interface State {
   name: string;
@@ -14,16 +15,15 @@ interface State {
 
 
 export class AccountProfileComponent implements OnInit {
-
+  isShow = false;
   formShopConfirm: any = {
-    api_token:null,
     fname: null,
     lname: null,
     phone_number: null,
-    province: null,
-    city: null,
+    province: {},
+    cityy: null,
     postcode: null,
-    address: null,
+    addressa: null,
   };
 
   constructor(private authService: AuthService) {
@@ -46,8 +46,8 @@ export class AccountProfileComponent implements OnInit {
   ]);
   zipcodeFormControl = new FormControl('', [
     Validators.required,
-    Validators.max(10),
-    Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+    Validators.minLength(10),
+    Validators.pattern(/^-?(0|[0-9]\d*)?$/)])
   ;
   addressFormControl = new FormControl('', [
     Validators.required,
@@ -55,8 +55,8 @@ export class AccountProfileComponent implements OnInit {
   stateControl = new FormControl('', Validators.required);
   phoneNumberFormControl = new FormControl('', [
     Validators.required,
-    Validators.max(11),
-    Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+    Validators.minLength(11),
+    Validators.pattern(/^-?(0|[0-9]\d*)?$/)])
   ;
 
   states: State[] = [
@@ -93,6 +93,8 @@ export class AccountProfileComponent implements OnInit {
     {name: 'یزد'},
   ];
 
-
+confirm(){
+  this.isShow = true;
+}
 
 }

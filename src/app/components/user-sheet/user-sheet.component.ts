@@ -19,13 +19,17 @@ export class UserSheetComponent implements OnInit {
 
   ngOnInit(): void {
     this.getShoppingList();
-
+    this.sharedService.share.subscribe(x =>
+      this.baskets = [x])
+    console.log('this:');
+    console.log(this.baskets);
   }
 
   getShoppingList() {
     this.sharedService.getShoppingList().subscribe(data => {
+      console.log(data);
       this.baskets = data;
-
+      console.log("kirrrrr");
     });
   }
 

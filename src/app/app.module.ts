@@ -9,34 +9,36 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductsComponent} from './components/products/products.component';
 import {SignIudialogComponent} from './components/sign-iudialog/sign-iudialog.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { AccountProfileComponent } from './components/account-profile/account-profile.component';
-import { SlideMenuModule } from 'primeng/slidemenu';
-import { ButtonModule } from 'primeng/button';
+import {AccountProfileComponent} from './components/account-profile/account-profile.component';
+import {SlideMenuModule} from 'primeng/slidemenu';
+import {ButtonModule} from 'primeng/button';
 import {MatSelectModule} from '@angular/material/select';
-import { MegaMenuModule } from 'primeng/megamenu';
+import {MegaMenuModule} from 'primeng/megamenu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { ProductsInfoPageComponent } from './components/products/products-info-page/products-info-page.component';
+import {ProductsInfoPageComponent} from './components/products/products-info-page/products-info-page.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { UserSheetComponent } from './components/user-sheet/user-sheet.component';
+import {UserSheetComponent} from './components/user-sheet/user-sheet.component';
 import {MatListModule} from '@angular/material/list';
+import {ShopListComponent} from './components/shop-list/shop-list.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const appRoutes: Routes = [
-  {path: '', component: ProductsComponent  },
+  {path: '', component: ProductsComponent},
   {path: 'account-profile', component: AccountProfileComponent},
-  {path: 'products/products-info-page/:id', component:ProductsInfoPageComponent},
+  {path: 'products/products-info-page/:id', component: ProductsInfoPageComponent},
+  {path: 'shop-list', component: ShopListComponent}
 ];
 
 @NgModule({
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     AccountProfileComponent,
     ProductsInfoPageComponent,
     UserSheetComponent,
+    ShopListComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ const appRoutes: Routes = [
     MatProgressBarModule,
     MatBottomSheetModule,
     MatListModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}, {

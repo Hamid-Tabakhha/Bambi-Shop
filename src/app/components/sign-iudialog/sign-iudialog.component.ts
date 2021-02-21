@@ -33,11 +33,20 @@ export class SignIudialogComponent implements OnInit {
   hide = true;
   lpasswordFormControl = new FormControl('', [
     Validators.required,
+    Validators.min(6)
   ]);
   passwordFormControl = new FormControl('', [
     Validators.required,
+    Validators.min(6)
   ]);
   repasswordFormControl = new FormControl('', [
+    Validators.required,
+    Validators.min(6)
+  ]);
+  userLoginCheck = new FormControl( '', [
+    Validators.required,
+  ]);
+  userSignUpCheck = new FormControl( '', [
     Validators.required,
   ]);
 

@@ -1,5 +1,5 @@
 .account-info {
-  top: 94px;
+  top: 105px;
   width: 50%;
   position: relative;
   left: 25px;
@@ -21,4 +21,54 @@ td {
   width: 1030px;
   left: 170px;
   height: 638px;
+}
+
+.name{
+  position: absolute;
+  right: 127px;
+  top: 119px;
+
+}
+
+.fname{
+  position: absolute;
+  right: 329px;
+  top: 119px;
+}
+
+.phone{
+  position: absolute;
+  right: 127px;
+  top: 200px;
+}
+
+.province{
+  position: absolute;
+  top: 281px;
+  right: 127px;
+}
+
+.city{
+  position: absolute;
+  right: 329px;
+  top: 281px;
+}
+
+.postcode{
+  position: absolute;
+  right: 329px;
+  top: 200px;
+}
+
+.address{
+  position: absolute;
+  right: 127px;
+}
+
+
+.back-but {
+  position: absolute;
+  bottom: 528px;
+  left: 20px;
+  top: auto;
 }

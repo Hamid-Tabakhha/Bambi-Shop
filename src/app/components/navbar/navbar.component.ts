@@ -4,7 +4,7 @@ import {SignIudialogComponent} from 'src/app/components/sign-iudialog/sign-iudia
 import {TokenStorageService} from '../../_services/token-storage.service';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {UserSheetComponent} from 'src/app/components/user-sheet/user-sheet.component';
-
+import {ShareServiceService} from '../../Services/share-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   loggedMessage = '';
   currentUser;
 
-  constructor(public dialog: MatDialog, private token: TokenStorageService, private _bottomSheet: MatBottomSheet) {
+  constructor(public dialog: MatDialog, private token: TokenStorageService, private _bottomSheet: MatBottomSheet, private shareService: ShareServiceService) {
   }
 
 
@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit {
   openDialog(): void {
     if (this.token.getFlag() == 'true') {
       this._bottomSheet.open(UserSheetComponent);
+      this.shareService.getShoppingList();
     } else {
       this.dialog.open(SignIudialogComponent, {});
     }

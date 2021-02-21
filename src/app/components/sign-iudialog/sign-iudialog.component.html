@@ -12,9 +12,13 @@
       <mat-label>نام کاربری</mat-label>
       <input type="text" matInput #loginuser maxlength="25" placeholder="نام کاربری خود را وارد نمایید"
              [(ngModel)]="formSignIn.username"
+             [formControl]="userLoginCheck"
              name="username"
       />
       <mat-hint align="end"></mat-hint>
+      <mat-error *ngIf="userLoginCheck.hasError('required')">
+        <strong>نام کاربری</strong> خود را وارد نمایید
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="pass-login" appearance="fill" style="text-align: right">
@@ -32,14 +36,20 @@
         <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
+      <mat-error *ngIf="lpasswordFormControl.hasError('min')">
+        رمز عبور<strong>6</strong> حرف باشد
+      </mat-error>
+
       <mat-hint align="end">{{ loginpass.value.length }} 6/25</mat-hint>
-      <button  type="submit" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      <button type="submit" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
       </button>
     </mat-form-field>
-    <button (click)="onSubmitSignIn()" class="sign-in-but" mat-raised-button color="primary">Sign In</button>
+    <button (click)="onSubmitSignIn()"
+            type="submit" [disabled]="!lpasswordFormControl.valid && !userLoginCheck.valid"
+            class="sign-in-but" mat-raised-button color="primary">Sign In</button>
 
     <div
       class="alert alert-danger"
@@ -66,8 +76,12 @@
       <mat-label>نام کاربری</mat-label>
       <input type="text" matInput #reguser minlength="6" maxlength="25" placeholder="نام کاربری برای خود انتخاب نمایید"
              [(ngModel)]="formSignUp.username"
+             [formControl]="userSignUpCheck"
              name="username"/>
       <mat-hint align="end">{{ reguser.value.length }} 6/25</mat-hint>
+      <mat-error *ngIf="userSignUpCheck.hasError('required')">
+        <strong>نام کاربری</strong> خود را وارد نمایید
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="pass-register" style="text-align: right">
@@ -81,6 +95,11 @@
       <mat-error *ngIf="passwordFormControl.hasError('required')">
         <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
+
+      <mat-error *ngIf="passwordFormControl.hasError('min')">
+        رمز عبور<strong>6</strong> حرف باشد
+      </mat-error>
+
 
     </mat-form-field>
 
@@ -98,8 +117,17 @@
         <strong>رمز عبور</strong> خود را وارد نمایید
       </mat-error>
 
+      <mat-error *ngIf="repasswordFormControl.hasError('required')">
+        <strong>رمز عبور</strong> خود را وارد نمایید
+      </mat-error>
+
+
     </mat-form-field>
-    <button (click)="onSubmitSignUp()" type="submit" class="sign-up-but" mat-raised-button color="primary">Sign Up</button>
+    <button (click)="onSubmitSignUp()" type="submit"
+            [disabled]="!repasswordFormControl.valid || !formSignUp.valid || !passwordFormControl.valid"
+
+            class="sign-up-but" mat-raised-button color="primary">Sign Up
+    </button>
   </form>
 
 
